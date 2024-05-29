@@ -1,0 +1,35 @@
+﻿
+@{
+    Layout = null;
+    string id_for_text_area = Guid.NewGuid().ToString();
+    string text_area_for_number = "textarea_num_" + id_for_text_area;
+    string text_area_for_alphabet = "textarea_alp_" + id_for_text_area;
+    string uniqueId = Guid.NewGuid().ToString();
+}
+
+
+@model Курсова.Models.ModelsTask.TaskSuquence
+<form method="post" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#response_@uniqueId" asp-action="PartialAddNewTaskSuquence" asp-controller="Task">
+
+    <label>Напишіть питання та можливі відповіді в вірному порядку, а програма потім автоматично перемішає їх</label>
+    <input value="@ViewBag.id_test" type="hidden" name="test_id" />
+    <div class="partialSuquence_div_question">
+        <label>Питання: </label>
+        <input type="text" id='@text_area_for_number' name="list_question"/>
+    </div>
+
+    <div class="partialSuquence_div_answer">
+        <label>Список відповідей: </label>
+        <textarea id='@text_area_for_alphabet' name="list_answer" oninput="PartialComplianceAddLineNumbers('@text_area_for_alphabet', 'alphabetic')">A) </textarea>
+    </div>
+
+    <div>
+        <label>Оцінка: </label>
+        <input type="number" name="assessment" />
+    </div>
+
+    <div id="response_@uniqueId">
+        <input type="submit" value="Зберегти" />
+    </div>
+</form>
+

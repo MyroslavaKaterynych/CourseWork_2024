@@ -1,0 +1,102 @@
+﻿@{int count_question = 0; }
+<div id="test">@Model</div>
+
+@for (int i = 0; i < ViewBag.list_taskTest.Count; i++)
+{
+    count_question++;
+    <div class="PassTest_Test">
+        <div style="display: none;">@ViewBag.list_taskTest[i].type</div>
+        <label class="PassTest_label_question">@count_question. Питання:</label>
+        <div class="PassTest_div_question"> @ViewBag.list_taskTest[i].question</div>
+        @for (int j = 0; j < ViewBag.list_taskTest[i].answer_options.Count; j++)
+        {
+            <div class="PassTest_div_variant_answer answer-option">
+                <span class="option-letter">@ViewBag.list_taskTest[i].lettersForListAnswer[j].letter)</span>
+                <span class="option-text">@ViewBag.list_taskTest[i].answer_options[j]</span>
+            </div>
+        }
+        <label class="PassTest_label_answer">Відповідь: </label>
+        <input class="PassTest_input_answer" type="text" placeholder="A" />
+    </div>
+}
+
+@for (int i = 0; i < ViewBag.list_TaskMultipleOption.Count; i++)
+{
+    count_question++;
+    <div class="PassTest_Test">
+        <div style="display: none;">@ViewBag.list_TaskMultipleOption[i].type</div>
+        <label class="PassTest_label_question">@count_question. Питання:</label>
+        <div class="PassTest_div_question"> @ViewBag.list_TaskMultipleOption[i].question</div>
+        @for (int j = 0; j < ViewBag.list_TaskMultipleOption[i].answer_options.Count; j++)
+        {
+            <div class="PassTest_div_variant_answer answer-option">
+                <span class="option-letter">@ViewBag.list_TaskMultipleOption[i].lettersForListAnswer[j].letter)</span>
+                <span class="option-text">@ViewBag.list_TaskMultipleOption[i].answer_options[j]</span>
+            </div>
+        }
+        <label class="PassTest_label_answer">Відповідь: </label>
+        <input class="PassTest_input_answer" type="text" placeholder="A,Б" />
+    </div>
+}
+
+@for (int i = 0; i < ViewBag.list_taskSuquence.Count; i++)
+{
+    count_question++;
+    <div class="PassTest_Test">
+        <div style="display: none;">@ViewBag.list_taskSuquence[i].type</div>
+        <label class="PassTest_label_question">@count_question. Питання:</label>
+        <div class="PassTest_div_question"> @ViewBag.list_taskSuquence[i].question</div>
+        @for (int j = 0; j < ViewBag.list_taskSuquence[i].list_answers.Count; j++)
+        {
+            <div class="PassTest_div_variant_answer answer-option">
+                <span class="option-letter">@ViewBag.list_taskSuquence[i].lettersForListAnswer[j].letter)</span>
+                <span class="option-text">@ViewBag.list_taskSuquence[i].list_answers[j]</span>
+            </div>
+        }
+        <label class="PassTest_label_answer">Відповідь: </label>
+        <input class="PassTest_input_answer" type="text" placeholder="В,Г,А,Б" />
+    </div>
+}
+
+@for (int i = 0; i < ViewBag.list_taskOpenQuestion.Count; i++)
+{
+    count_question++;
+    <div class="PassTest_Test">
+        <div style="display: none;">@ViewBag.list_taskOpenQuestion[i].type</div>
+        <label class="PassTest_label_question">@count_question. Питання:</label>
+        <div class="PassTest_div_question"> @ViewBag.list_taskOpenQuestion[i].question</div>
+        <br />
+        <label class="PassTest_label_answer">Відповідь: </label>
+        <input class="PassTest_input_answer" type="text" placeholder="Вірна відповідь." />
+    </div>
+}
+
+@for (int i = 0; i < ViewBag.list_taskCompliance.Count; i++)
+{
+    count_question++;
+    <div class="PassTest_Test">
+        <div style="display: none;">@ViewBag.list_taskCompliance[i].type</div>
+        <label class="PassTest_label_question">@count_question. Питання:</label>
+        <div class="PassTest_div_question"> @ViewBag.list_taskCompliance[i].question</div>
+        @for (int j = 0; j < ViewBag.list_taskCompliance[i].list_quastion.Count; j++)
+        {
+            <br />
+            <div class="PassTest_Compliance_div_variant_question">@(j+1). @ViewBag.list_taskCompliance[i].list_quastion[j]</div>
+            <input class="PassTest_Compliance_input_variant_answer" type="text" />
+        }
+        <br />
+        @for (int j = 0; j < ViewBag.list_taskCompliance[i].list_answers.Count; j++)
+        {
+            <div class="PassTest_Compliance_div_variant_answer answer-option">
+                <span class="option-letter">@ViewBag.list_taskCompliance[i].lettersForListAnswer[j].letter)</span>
+                <span class="option-text">@ViewBag.list_taskCompliance[i].list_answers[j]</span>
+            </div>
+            <br />
+        }
+    </div>
+}
+
+<br />
+<div style="width:100%; text-align:center;">
+    <button onclick="CheckTest()" class="PassTest_btn">Завершити тест</button>
+</div>

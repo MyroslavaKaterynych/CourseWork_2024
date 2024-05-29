@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = null;
+    string id_for_text_area = Guid.NewGuid().ToString();
+    string text_area_for_number = "textarea_num_" + id_for_text_area;
+    string text_area_for_alphabet = "textarea_alp_" + id_for_text_area;
+    string uniqueId = Guid.NewGuid().ToString();
+}
+
+
+@model Курсова.Models.ModelsTask.TaskMultipleOption
+<form method="post" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#response_@uniqueId" asp-action="PartialAddNewTaskMultipleOption" asp-controller="Task">
+
+    <label>Напишіть питання та вірні відповіді спочатку, а потім невірні, програма потім автоматично перемішає їх, та вкажіть кіл-ть вірних відповідей</label>
+    <input value="@ViewBag.id_test" type="hidden" name="test_id" />
+    <div class="partialMultipleOption_div_question">
+        <label>Питання: </label>
+        <input type="text" id='@text_area_for_number' name="question" />
+    </div>
+
+    <div class="partialMultipleOption_div_answer">
+        <label>Список відповідей: </label>
+        <textarea id='@text_area_for_alphabet' name="list_answer" oninput="PartialComplianceAddLineNumbers('@text_area_for_alphabet', 'alphabetic')">A) </textarea>
+    </div>
+    <div>
+        <label>Кіл-ть вірних відповідей: </label>
+        <input type="number" name="count_correct_answer" />
+    </div>
+    <div>
+        <label>Оцінка: </label>
+        <input type="number" name="assessment" />
+    </div>
+
+    <div id="response_@uniqueId">
+        <input type="submit" value="Зберегти" />
+    </div>
+</form>
+

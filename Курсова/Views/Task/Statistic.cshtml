@@ -1,0 +1,21 @@
+﻿<table class="Statistic_table">
+    <tr>
+        <th>Ім'я</th>
+        <th>Прізвище</th>
+        <th>Пошта</th>
+        <th>Оцінка</th>
+        <th>Дата</th>
+
+    </tr>
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <tr>
+            <th>@Model[i].user_name</th>
+            <th>@Model[i].user_surname</th>
+            <th>@Model[i].login</th>
+            <th>@Model[i].assessment</th>
+            <th>@Model[i].date</th>
+
+        </tr>
+    }
+</table>

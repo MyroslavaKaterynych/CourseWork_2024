@@ -1,0 +1,22 @@
+﻿<div id="id_test" style="display:none;"> @ViewBag.id</div>
+<div>
+    @{string str = ViewBag.id+"_"+ ViewBag.avtor; }
+ 
+    <label> <a href ="https://localhost:7001/Task/PassTest?str=@str" target="_blank">Силка на тест: https://localhost:7001/Task/PassTest?str=@str </a></label>
+</div>
+<div>
+    @ViewBag.name
+</div>
+<div>
+    @ViewBag.description
+</div>
+
+<button onclick="create_test()">+</button>
+
+<div id="test"></div>
+
+
+
+
+
+

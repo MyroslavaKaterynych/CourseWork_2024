@@ -1,0 +1,40 @@
+﻿
+@{
+    Layout = null;
+    string id_for_text_area= Guid.NewGuid().ToString();
+    string text_area_for_number = "textarea_num_" + id_for_text_area;
+    string text_area_for_alphabet = "textarea_alp_" + id_for_text_area;
+    string uniqueId = Guid.NewGuid().ToString();
+}
+
+
+@model Курсова.Models.ModelsTask.TaskCompliance
+<form method="post" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#response_@uniqueId" asp-action="PartialAddNewTaskCompliance" asp-controller="Task">
+
+    <label>Напишіть в колонки завдання з вірними відповідями в правильному порядку, а програма потім автоматично перемішає їх</label>
+    <input value="@ViewBag.id_test" type="hidden" name="test_id" />
+    <div class="partialCompliance_div_question">
+        <label>Загальне питання: </label>
+        <input type="text"  name="question" ></input>
+    </div>
+
+    <div class="partialCompliance_div_question">
+        <label>Список питаннь: </label>
+        <textarea id='@text_area_for_number' name="list_question" oninput="PartialComplianceAddLineNumbers('@text_area_for_number', 'numeric')">1. </textarea>
+    </div>
+
+    <div class="partialCompliance_div_answer">
+        <label>Список відповідей: </label>
+        <textarea id='@text_area_for_alphabet' name="list_answer" oninput="PartialComplianceAddLineNumbers('@text_area_for_alphabet', 'alphabetic')">A) </textarea>
+    </div>
+
+    <div>
+        <label>Оцінка: </label>
+        <input type="number" name="assessment" />
+    </div>
+
+    <div id="response_@uniqueId">
+        <input type="submit" value="Зберегти" />
+    </div>
+</form>
+

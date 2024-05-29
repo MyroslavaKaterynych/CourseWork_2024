@@ -1,0 +1,107 @@
+﻿html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.partialCompliance_div_question
+{
+    width:48%;
+    display:inline-block;
+    margin-top:3vh;
+    margin-bottom:3vh;
+    text-align:center;
+}
+.partialCompliance_div_answer {
+    width: 48%;
+    display: inline-block;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    text-align: center;
+
+}
+.partialCompliance_div_question>textarea
+{
+    height:25vh;
+}
+.partialCompliance_div_answer>textarea {
+    height: 25vh;
+}
+.partialSuquence_div_question > textarea {
+  margin-top: 2vh;
+
+}
+
+.partialSuquence_div_answer > textarea {
+    height: 25vh;
+    margin-top: 2vh;
+}
+.partialTest_div_question > textarea {
+    margin-top: 2vh;
+}
+
+.partialTest_div_answer > textarea {
+    height: 25vh;
+    margin-top: 2vh;
+}
+.PassTest_label_question {
+    font-weight: 600;
+    display: inline-block;
+}
+.PassTest_div_question {
+    display: inline-block;
+}
+.PassTest_div_variant_answer {
+    margin-left: 15%;
+}
+.PassTest_label_answer {
+    margin-left: 10%;
+    margin-top: 3vh;
+}
+.PassTest_input_answer {
+}
+.PassTest_Compliance_div_variant_answer {
+    display: inline-block;
+    margin-left: 15%;
+    margin-bottom: 1vh;
+}
+.PassTest_Compliance_div_variant_question {
+    display: inline-block;
+    margin-left: 15%;
+    margin-bottom: 1vh;
+}
+.PassTest_Compliance_input_variant_answer {
+    display: inline-block;
+    width: 5vw;
+    border: 1px solid black;
+
+}
+
+.PassTest_Test {
+    margin-bottom: 3vh;
+}
+.PassTest_btn {
+   
+}
+.Statistic_table {
+    width:100%;
+    text-align:center;
+
+}

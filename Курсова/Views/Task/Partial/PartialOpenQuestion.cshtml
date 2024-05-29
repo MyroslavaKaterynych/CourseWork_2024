@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = null;
+    string uniqueId = Guid.NewGuid().ToString();
+}
+
+@model Курсова.Models.ModelsTask.TaskOpenQuestion
+<form method="post" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#response_@uniqueId" asp-action="PartialAddNewTaskOpenQuestion" asp-controller="Task">
+    <input value="@ViewBag.id_test" type="hidden" name="test_id" />
+    <div>
+        <label>Питання: </label>
+        <input type="text" name="question" />
+    </div>
+
+    <div>
+        <label>Вірна відповідь: </label>
+        <input type="text" name="corect_answer" />
+    </div>
+
+    <div>
+        <label>Оцінка: </label>
+        <input type="number" name="assessment" />
+    </div>
+  
+    <div id="response_@uniqueId">
+        <input type="submit" value="Зберегти" />
+    </div>
+</form>
